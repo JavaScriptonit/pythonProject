@@ -3,17 +3,17 @@ name_of_unit = "hours"
 
 
 def days_to_units(days):
-    if days > 0:
-        return f"{days} days are {days * calculation_to_units} {name_of_unit}"
-    elif days == 0:
-        return "You entered a 0, please enter a valid positive number!"
+    return f"{days} days are {days * calculation_to_units} {name_of_unit}"
 
 
 def validate_and_execute():
     if user_input.isdigit():
         user_input_number = int(user_input)
-        calculated_value = days_to_units(user_input_number)
-        print(calculated_value)
+        if user_input_number > 0:
+            calculated_value = days_to_units(user_input_number)
+            print(calculated_value)
+        elif user_input_number == 0:
+            print("You entered a 0, please enter a valid positive number!")
     else:
         print("Your input is not a valid number. Please enter a valid positive number!")
 
