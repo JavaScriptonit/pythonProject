@@ -7,14 +7,18 @@ def days_to_units(days):
 
 
 def validate_and_execute():
-    if user_input.isdigit():
+    try:
+        # can use "try/except" instead of "if user_input.isdigit():"
         user_input_number = int(user_input)
         if user_input_number > 0:
             calculated_value = days_to_units(user_input_number)
             print(calculated_value)
         elif user_input_number == 0:
             print("You entered a 0, please enter a valid positive number!")
-    else:
+        else:
+            print("You entered a negative number, no conversation for you!")
+    except ValueError:
+        # "except ValueError:" instead of "else:"
         print("Your input is not a valid number. Please enter a valid positive number!")
 
 
