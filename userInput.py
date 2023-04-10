@@ -9,7 +9,7 @@ def days_to_units(days):  # create a message for a user with calculations of hou
 def validate_and_execute():  # function to check the input with a correct number and throw Error messages to a user if it's not correct
     try:
         # can use "try/except" instead of "if user_input.isdigit():"
-        user_input_number = int(user_input)
+        user_input_number = int(num_of_days_element)
         if user_input_number > 0:
             calculated_value = days_to_units(user_input_number)
             print(calculated_value)
@@ -24,5 +24,8 @@ def validate_and_execute():  # function to check the input with a correct number
 
 user_input = ""
 while user_input != "exit":  # while loop stops only when user_input == "exit"
-    user_input = input("Hey user, enter a number of days and I will convert it to hours!\n")  # welcome message for a user
-    validate_and_execute()  # run validate_and_execute() function
+    user_input = input("Hey user, enter a number of days as a comma separated list and I will convert it to hours!\n")  # welcome message for a user
+    print(type(user_input.split(", ")))
+    print(user_input.split(", "))
+    for num_of_days_element in user_input.split(", "):
+        validate_and_execute()  # run validate_and_execute() function
